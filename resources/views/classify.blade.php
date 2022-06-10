@@ -42,7 +42,7 @@
             <a2><input type="file" name="taple" id="taple" accept=".csv"></a2>
         </div>
         <div class="startButton">
-            <button type="submit">Start classifying</button>
+            <button type="submit" class="startBtn">Start classifying</button>
         </div>
 
     </form>

@@ -46,7 +46,7 @@ header{
     margin: 4em 0em 0em -2em;
 
 }
-.startButton button {
+.startBtn {
     color: rgb(67, 199, 85);
     text-decoration: none;
     font-weight: bold;
