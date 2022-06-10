@@ -39,7 +39,7 @@
         @csrf
         <div class="input">
             <a1><input type="file" name="image" id="image" accept=".jpg, .jpeg, .png"></a1>
-            <a2><input type="file" name="taple" id="taple" accept=".csv"></a2>
+            <a2><input type="file" name="data" id="data" accept=".csv"></a2>
         </div>
         <div class="startButton">
             <button type="submit" class="startBtn">Start classifying</button>
