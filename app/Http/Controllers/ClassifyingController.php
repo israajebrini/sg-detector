@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class ClassifyingController extends Controller
 {
-    function start_classify($request){
+    function start_classify(Request $request){
         if ($request->hasFile('image')) {
             $image      = $request->file('image');
             $fileName   = time() . '.' . $image->getClientOriginalExtension();

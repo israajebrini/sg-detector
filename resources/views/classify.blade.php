@@ -38,13 +38,12 @@
     <form action="{{route('start_classify')}}" method="post">
         @csrf
         <div class="input">
-            <a1><input type="file" name="image" id="image" accept=".jpg, .jpeg, .png"></a1>
-            <a2><input type="file" name="data" id="data" accept=".csv"></a2>
+            <input type="file" name="image" id="image" accept=".jpg, .jpeg, .png">
+            <input type="file" name="data" id="data" accept=".csv">
         </div>
         <div class="startButton">
             <button type="submit" class="startBtn">Start classifying</button>
         </div>
-
     </form>
 </div>
 
