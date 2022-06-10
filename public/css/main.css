@@ -5,7 +5,7 @@ body {
     background-color: black;
 }
 .hero-bg{
-    background: center  url(../images/800wm.jpg);
+    background: center  url(../images/800wm.jpeg);
     color:white;
     text-align: center;
     padding-bottom: 1em;
@@ -32,10 +32,10 @@ section{
     font-size: 180%;
 }
 .hero-bg .choice a1{
-    
+
     margin: 0em 2em 0em 0em ;
 }
 .hero-bg .choice a2{
-    
+
     margin: 0em 0em 0em 2em ;
 }
