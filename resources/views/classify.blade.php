@@ -35,25 +35,19 @@
         <a3><label for="images">Drop image here</label></a3>
         <a4><label for="taples">Drop taple here</label></a4>
     </div>
-    <form action="">
+    <form action="{{route('start_classify')}}" method="post">
+        @csrf
         <div class="input">
             <a1><input type="file" name="image" id="image" accept=".jpg, .jpeg, .png"></a1>
             <a2><input type="file" name="taple" id="taple" accept=".csv"></a2>
         </div>
-
+        <div class="startButton">
+            <button type="submit">Start classifying</button>
+        </div>
 
     </form>
 </div>
 
-<div class="startButton">
-    <form action="">
-        <nav>
-            <ul>
-                <a  href="resultsPage.html">Start classifing</a>
-            </ul>
-        </nav>
-    </form>
-</div>
 </body>
 
 </html>

@@ -24,3 +24,5 @@ Route::get('/train', function () {
 Route::get('/classify', function () {
     return view('classify');
 })->name('classify');
+
+Route::post('/start-classifying','')->name('start_classify');
