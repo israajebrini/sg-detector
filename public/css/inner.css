@@ -46,7 +46,7 @@ header{
     margin: 4em 0em 0em -2em;
 
 }
-.startButton a {
+.startButton button {
     color: rgb(67, 199, 85);
     text-decoration: none;
     font-weight: bold;
@@ -94,11 +94,11 @@ header{
 }
 /* text inside the box - to be deleted when adding image and table */
 .choice a1{
-    
+
     margin: 0em 10em 0em 0em ;
 }
 .choice a2{
-    
+
     margin: 0em 0em 0em 0em ;
 }
 
