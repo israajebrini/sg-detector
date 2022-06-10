@@ -8,18 +8,20 @@ class ClassifyingController extends Controller
 {
     function start_classify(Request $request){
         if ($request->hasFile('image')) {
-            $image      = $request->file('image');
-            $fileName   = time() . '.' . $image->getClientOriginalExtension();
+            Storage::disk('public')->putFile('folder-destination/', $request->file('image'));
 
-            $img = Image::make($image->getRealPath());
+//            $image      = $request->file('image');
+//            $fileName   = time() . '.' . $image->getClientOriginalExtension();
+//
+//            $img = Image::make($image->getRealPath());
 //            $img->resize(120, 120, function ($constraint) {
 //                $constraint->aspectRatio();
 //            });
 
-            $img->stream(); // <-- Key point
+//            $img->stream(); // <-- Key point
 
             //dd();
-            Storage::disk('public')->put('images/'.'/'.$fileName, $img, 'public');
+//            Storage::disk('public')->put('images/'.'/'.$fileName, $img, 'public');
         }
         if ($request->hasFile('data')){
             Storage::disk('public')->putFile('folder-destination/', $request->file('data'));
