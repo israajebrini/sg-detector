@@ -25,4 +25,4 @@ Route::get('/classify', function () {
     return view('classify');
 })->name('classify');
 
-Route::post('/start-classifying','')->name('start_classify');
+Route::post('/start-classifying','ClassifyingController@start_classify')->name('start_classify');
