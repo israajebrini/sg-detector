@@ -35,7 +35,7 @@
         <a3><label for="images">Drop image here</label></a3>
         <a4><label for="taples">Drop taple here</label></a4>
     </div>
-    <form action="{{route('start_classify')}}" method="post">
+    <form action="{{route('start_classify')}}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="input">
             <input type="file" name="image" id="image" accept=".jpg, .jpeg, .png">
