@@ -128,5 +128,31 @@
                 </div>
             </div>
         </div>
+        <div class="hero-bg">
+            <section class="top">
+                <header>
+                    <h1>Stress Granules detector</h1>
+                    <p>by Yakeen & Israa</p>
+
+                </header>
+                <p1>In order to train a new network that classifies the suspicted points click "Train".</p1>
+                <p2>To classify a set of points click "Classify"</p2>
+
+                <div class="choice">
+                    <form action=""></form>
+                    <nav>
+                        <a1><a href="train.html">Train</a></a1>
+                        <a2><a href="classify.html">Classify</a></a2>
+                    </nav>
+                </div>
+            </section>
+        </div>
+        <div class="description">
+            <h2>About the site:</h2>
+            <p>
+                where the idea came from
+                how we expanded the idea to be useful for other researchers, other images and other tybes of cells to classify
+                ~to be written~</p>
+        </div>
     </body>
 </html>
