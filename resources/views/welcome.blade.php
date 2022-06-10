@@ -36,8 +36,8 @@
                 <div class="choice">
                     <form action=""></form>
                     <nav>
-                        <a1><a href="{{route('train')}}}">Train</a></a1>
-                        <a2><a href="{{route('classify')}}}">Classify</a></a2>
+                        <a1><a href="{{route('train')}}">Train</a></a1>
+                        <a2><a href="{{route('classify')}}">Classify</a></a2>
                     </nav>
                 </div>
             </section>
