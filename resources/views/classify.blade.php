@@ -35,7 +35,9 @@
 
     <form action="{{route('start_classify')}}" method="post" enctype="multipart/form-data">
         @csrf
-        <fieldset>
+        <fieldset style="    display: flex !important;
+    justify-content: center !important;
+    border: solid 2px #4CAF50 !important;">
             <div class="input">
                 <label for="image">Import image here</label>
                 <input type="file" name="image" id="image" accept=".jpg, .jpeg, .png">
