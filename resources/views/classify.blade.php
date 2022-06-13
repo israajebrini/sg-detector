@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Classify</title>
+    <title>Classify algorithm</title>
     <link rel="stylesheet" href="{{asset('css/inner.css')}}">
 </head>
 
@@ -21,6 +21,7 @@
 
 <div class="description">
     <h2>Classify</h2>
+
     <p1>In order to classify suspicted points list. Do as follow:</p1>
     <p2>Enter the image you want to classify and the Excel taple which includes
         the x,y coordinates of the points suspicted as SGs. then click "Classify"</p2>
