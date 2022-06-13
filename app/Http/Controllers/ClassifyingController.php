@@ -13,7 +13,7 @@ class ClassifyingController extends Controller
     function start_classify(Request $request){
 //        dd("here");
         if ($request->hasFile('image')) {
-//            Storage::disk('public')->putFileAs('folder-destination', $request->file('image','img'));
+            Storage::disk('public')->putFileAs('folder-destination', $request->file('image'),'img');
 
 //            $image      = $request->file('image');
 //            $fileName   = time() . '.' . $image->getClientOriginalExtension();
@@ -29,7 +29,7 @@ class ClassifyingController extends Controller
 //            Storage::disk('public')->put('images/'.'/'.$fileName, $img, 'public');
         }
         if ($request->hasFile('data')){
-//            Storage::disk('public')->putFileAs('folder-destination', $request->file('data'),'data');
+            Storage::disk('public')->putFileAs('folder-destination', $request->file('data'),'data');
         }
 //        dd("here");
 
