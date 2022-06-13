@@ -9,7 +9,7 @@ class ClassifyingController extends Controller
 {
     function start_classify(Request $request){
         if ($request->hasFile('image')) {
-            Storage::disk('public')->putFile('folder-destination/', $request->file('image'));
+            Storage::disk('public')->putFile('folder-destination/img', $request->file('image'));
 
 //            $image      = $request->file('image');
 //            $fileName   = time() . '.' . $image->getClientOriginalExtension();
@@ -25,13 +25,13 @@ class ClassifyingController extends Controller
 //            Storage::disk('public')->put('images/'.'/'.$fileName, $img, 'public');
         }
         if ($request->hasFile('data')){
-            Storage::disk('public')->putFile('folder-destination/', $request->file('data'));
+            Storage::disk('public')->putFile('folder-destination/data', $request->file('data'));
         }
 
         //TODO : run python file on these files
 
-
-
+        // /usr/local/my-scripts
+        $output_data = exec('python3 /usr/local/my-scripts/classify.py /var/www/laravel/storage/app/public/folder-destination/img.jpg /var/www/laravel/storage/app/public/folder-destination/data.csv');
 
     }
 }
