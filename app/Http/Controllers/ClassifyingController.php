@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Symfony\Component\Process\Process;
+use Symfony\Component\Process\Exception\ProcessFailedException;
+
 
 class ClassifyingController extends Controller
 {
@@ -27,6 +30,7 @@ class ClassifyingController extends Controller
         if ($request->hasFile('data')){
             Storage::disk('public')->putFileAs('folder-destination', $request->file('data'),'data');
         }
+        dd("here");
 
         // /usr/local/my-scripts
         $output_data = exec('python3 /usr/local/my-scripts/classify.py /var/www/laravel/storage/app/public/folder-destination/img.jpg /var/www/laravel/storage/app/public/folder-destination/data.csv');
