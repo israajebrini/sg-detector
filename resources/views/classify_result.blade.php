@@ -21,7 +21,7 @@
 
 <div class="middle">
     <div class="data-container">
-        <a href="{{asset('data/imageData.csv')}}" class="btn"><i class="fa fa-download"></i> Download classified data </a>
+        <a href="{{asset('data/imageData.csv')}}" class="btn" download><i class="fa fa-download"></i> Download classified data </a>
     </div>
 </div>
 <div class="results">
