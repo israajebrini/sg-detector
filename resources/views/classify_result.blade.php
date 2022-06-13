@@ -26,7 +26,7 @@
 </div>
 <div class="results">
     <div class="image-container">
-        <img src="{{asset('images/markedImage.jpg')}}">
+        <img src="{{asset('images/markedImage.jpg')}}" style="width: 50% ; border: 20px solid #4CAF50">
     </div>
 </div>
 
