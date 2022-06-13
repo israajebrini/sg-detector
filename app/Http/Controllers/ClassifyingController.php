@@ -36,7 +36,7 @@ class ClassifyingController extends Controller
         // /usr/local/my-scripts
         $output_data = exec('python3 /usr/local/my-scripts/classify.py /var/www/laravel/storage/app/public/folder-destination/img.jpg /var/www/laravel/storage/app/public/folder-destination/data.csv');
         dd($output_data);
-        return view('classify_result');
+//        return view('classify_result');
 
     }
 }
