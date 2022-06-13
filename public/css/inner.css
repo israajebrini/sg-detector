@@ -68,9 +68,7 @@ header{
     padding-bottom: 6em;
 
 }
-.TrainOrClassify .input{
-    margin: 3em 10em 0em 16em;
-}
+
 .TrainOrClassify a1{
     color: white;
     border: 2px solid #4CAF50; /* Green */
@@ -111,9 +109,7 @@ header{
     padding-bottom: 6em;
 
 }
-.results .input{
-    margin: 3em 10em 0em 16em;
-}
+
 .results a1{
     border: 2px solid #4CAF50; /* Green */
     margin: 0em 3em 0em 0em;
@@ -130,9 +126,9 @@ header{
 }
 
 fieldset{
-    display: flex;
-    justify-content: center;
-    border: solid 2px #4CAF50;
+    display: flex !important;
+    justify-content: center !important;
+    border: solid 2px #4CAF50 !important;
 
 }
 
