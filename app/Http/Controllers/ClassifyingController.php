@@ -11,6 +11,7 @@ use Symfony\Component\Process\Exception\ProcessFailedException;
 class ClassifyingController extends Controller
 {
     function start_classify(Request $request){
+        dd("here");
         if ($request->hasFile('image')) {
             Storage::disk('public')->putFileAs('folder-destination', $request->file('image','img'));
 
