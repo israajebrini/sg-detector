@@ -31,16 +31,20 @@
 </div>
 
 <div class="TrainOrClassify">
-    <div class="labels">
-        <a3><label for="images">Drop image here</label></a3>
-        <a4><label for="taples">Drop taple here</label></a4>
-    </div>
+
     <form action="{{route('start_classify')}}" method="post" enctype="multipart/form-data">
         @csrf
-        <div class="input">
-            <input type="file" name="image" id="image" accept=".jpg, .jpeg, .png">
-            <input type="file" name="data" id="data" accept=".csv">
-        </div>
+        <fieldset>
+            <div class="input">
+                <label for="image">Import image here</label>
+                <input type="file" name="image" id="image" accept=".jpg, .jpeg, .png">
+            </div>
+            <div class="input">
+                <label for="data">Import data here</label>
+                <input type="file" name="data" id="data" accept=".csv">
+            </div>
+
+        </fieldset>
         <div class="startButton">
             <button type="submit" class="startBtn">Start classifying</button>
         </div>
