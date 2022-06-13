@@ -35,15 +35,15 @@
 
     <form action="{{route('start_classify')}}" method="post" enctype="multipart/form-data">
         @csrf
-        <fieldset style="    display: flex !important;
-    justify-content: center !important;
-    border: solid 2px #4CAF50 !important;">
+        <fieldset style="display: flex;
+            justify-content: center;
+            border: solid 2px #4CAF50">
             <div class="input">
-                <label for="image">Import image here</label>
+                <label style="padding-bottom: 40px;" for="image">Import image here</label>
                 <input type="file" name="image" id="image" accept=".jpg, .jpeg, .png">
             </div>
             <div class="input">
-                <label for="data">Import data here</label>
+                <label  style="padding-bottom: 40px;" for="data">Import data here</label>
                 <input type="file" name="data" id="data" accept=".csv">
             </div>
 
