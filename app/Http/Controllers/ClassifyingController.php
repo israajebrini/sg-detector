@@ -9,7 +9,7 @@ class ClassifyingController extends Controller
 {
     function start_classify(Request $request){
         if ($request->hasFile('image')) {
-            Storage::disk('public')->putFile('folder-destination/img', $request->file('image'));
+            Storage::disk('public')->putFileAs('folder-destination', $request->file('image','img'));
 
 //            $image      = $request->file('image');
 //            $fileName   = time() . '.' . $image->getClientOriginalExtension();
@@ -25,7 +25,7 @@ class ClassifyingController extends Controller
 //            Storage::disk('public')->put('images/'.'/'.$fileName, $img, 'public');
         }
         if ($request->hasFile('data')){
-            Storage::disk('public')->putFile('folder-destination/data', $request->file('data'));
+            Storage::disk('public')->putFileAs('folder-destination', $request->file('data'),'data');
         }
 
         //TODO : run python file on these files
