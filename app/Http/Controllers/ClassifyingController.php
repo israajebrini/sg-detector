@@ -28,10 +28,10 @@ class ClassifyingController extends Controller
             Storage::disk('public')->putFileAs('folder-destination', $request->file('data'),'data');
         }
 
-        //TODO : run python file on these files
-
         // /usr/local/my-scripts
         $output_data = exec('python3 /usr/local/my-scripts/classify.py /var/www/laravel/storage/app/public/folder-destination/img.jpg /var/www/laravel/storage/app/public/folder-destination/data.csv');
+
+        return view('classify_result');
 
     }
 }

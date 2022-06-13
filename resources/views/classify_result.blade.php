@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Result</title>
     <link rel="stylesheet" href="{{asset('css/result.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -18,9 +19,11 @@
     </header>
 </div>
 
-<form class="description" action="">
-{{--    <h2>Found: {{numOfSGs}} SGs in you'r image.</h2>--}}
-</form>
+<div class="middle">
+    <div class="data-container">
+        <a href="{{assset('data/imageData.csv')}}" class="btn"><i class="fa fa-download"></i> Download classified data </a>
+    </div>
+</div>
 <div class="results">
     <div class="image-container">
         <img src="{{asset('images/markedImage.jpg')}}">
