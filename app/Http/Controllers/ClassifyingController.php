@@ -29,7 +29,7 @@ class ClassifyingController extends Controller
 //            Storage::disk('public')->put('images/'.'/'.$fileName, $img, 'public');
         }
         if ($request->hasFile('data')){
-            Storage::disk('public')->putFileAs('folder-destination', $request->file('data'),'data');
+            Storage::disk('public')->putFileAs('folder-destination', $request->file('data'),'data.csv');
         }
 //        dd("here");
 
