@@ -29,12 +29,12 @@ class ClassifyingController extends Controller
 //            Storage::disk('public')->put('images/'.'/'.$fileName, $img, 'public');
         }
         if ($request->hasFile('data')){
-            Storage::disk('public')->putFileAs('folder-destination', $request->file('data'),'data.csv');
+            Storage::disk('public')->putFileAs('folder-destination', $request->file('data'),'data');
         }
 //        dd("here");
 
         // /usr/local/my-scripts
-        $output_data = exec('python3 /usr/local/my-scripts/classify.py /var/www/laravel/storage/app/public/folder-destination/img.jpg /var/www/laravel/storage/app/public/folder-destination/data.csv');
+        $output_data = exec('python3 /usr/local/my-scripts/classify.py /var/www/laravel/storage/app/public/folder-destination/img /var/www/laravel/storage/app/public/folder-destination/data');
         return view('classify_result');
 
     }
