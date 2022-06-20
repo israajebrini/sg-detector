@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@269&display=swap');
         body {
@@ -160,6 +162,11 @@
 </div>
 
 <div class="TrainOrClassify">
+    <form action="{{route('start_classify')}}"
+          class="dropzone"
+          id="my-awesome-dropzone" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" />
+    </form>
     <form action="{{route('start_classify')}}" method="post" enctype="multipart/form-data">
         @csrf
         <fieldset style="display: flex;
