@@ -186,15 +186,19 @@
 {{--    </form>--}}
     <form action="{{route('start_training')}}" method="post" enctype="multipart/form-data">
         @csrf
+        <div class="add">
+            <button id="add"></button>
+        </div>
         <fieldset style="display: flex;
             justify-content: center;
             border: solid 2px #4CAF50">
-            <div class="input">
+
+            <div id="img" class="input">
                 <label style="padding-bottom: 40px;" for="image">Import images here</label>
                 <input type="file" name="images[]" id="images" accept=".jpg, .jpeg, .png" multiple>
             </div>
-            <div class="input">
-                <label  style="padding-bottom: 40px;" for="data">Import datas here</label>
+            <div id="csv" class="input">
+                <label style="padding-bottom: 40px;" for="data">Import datas here</label>
                 <input type="file" name="datas[]" id="datas" accept=".csv" multiple>
             </div>
         </fieldset>
@@ -203,6 +207,24 @@
         </div>
     </form>
 </div>
+<script>
+
+    $("#add").click(function(){
+
+        $("#img").clone().appendTo("#img");
+
+        $("#csv").clone().appendTo("#csv");
+
+
+    });
+
+    $("body").on("click",".btn-danger",function(){
+        $(this).parents(".control-group").remove();
+    });
+
+
+</script>
 </body>
+
 
 </html>
