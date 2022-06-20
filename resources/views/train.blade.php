@@ -165,9 +165,22 @@
     <form action="{{route('start_classify')}}"
           class="dropzone"
           id="my-awesome-dropzone" method="post" enctype="multipart/form-data">
-        <input type="file" name="file" />
-        <input type="file" name="file2" />
-
+        @csrf
+        <fieldset style="display: flex;
+            justify-content: center;
+            border: solid 2px #4CAF50">
+            <div class="input">
+                <label style="padding-bottom: 40px;" for="image">Import image here</label>
+                <input type="file" name="image" id="image" accept=".jpg, .jpeg, .png">
+            </div>
+            <div class="input">
+                <label  style="padding-bottom: 40px;" for="data">Import data here</label>
+                <input type="file" name="data" id="data" accept=".csv">
+            </div>
+        </fieldset>
+        <div class="startButton">
+            <button type="submit" class="startBtn">Start training</button>
+        </div>
     </form>
     <form action="{{route('start_classify')}}" method="post" enctype="multipart/form-data">
         @csrf
