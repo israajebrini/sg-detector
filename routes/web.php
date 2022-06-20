@@ -28,3 +28,4 @@ Route::get('/classify', function () {
 
 
 Route::post('/start-classifying','App\Http\Controllers\ClassifyingController@start_classify')->name('start_classify');
+Route::post('/start-training','App\Http\Controllers\ClassifyingController@start_training')->name('start_training');

@@ -23,4 +23,8 @@ class ClassifyingController extends Controller
         return view('classify_result',["num_of_sgs" => intval($num_of_sgs)]);
 
     }
+
+    function start_training(Request $request){
+        dd($request->all());
+    }
 }

@@ -182,7 +182,7 @@
 {{--            <button type="submit" class="startBtn">Start training</button>--}}
 {{--        </div>--}}
 {{--    </form>--}}
-    <form action="{{route('start_classify')}}" method="post" enctype="multipart/form-data">
+    <form action="{{route('start_training')}}" method="post" enctype="multipart/form-data">
         @csrf
         <fieldset style="display: flex;
             justify-content: center;
