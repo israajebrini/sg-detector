@@ -189,11 +189,11 @@
             border: solid 2px #4CAF50">
             <div class="input">
                 <label style="padding-bottom: 40px;" for="image">Import images here</label>
-                <input type="file" name="images" id="images" accept=".jpg, .jpeg, .png" multiple>
+                <input type="file" name="images[]" id="images" accept=".jpg, .jpeg, .png" multiple>
             </div>
             <div class="input">
                 <label  style="padding-bottom: 40px;" for="data">Import datas here</label>
-                <input type="file" name="datas" id="datas" accept=".csv" multiple>
+                <input type="file" name="datas[]" id="datas" accept=".csv" multiple>
             </div>
         </fieldset>
         <div class="startButton">
