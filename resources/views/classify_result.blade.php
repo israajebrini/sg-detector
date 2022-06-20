@@ -8,6 +8,18 @@
     <title>Result</title>
     <link rel="stylesheet" href="{{asset('css/result.css')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .num-of-sgs{
+            padding-bottom: 5px;
+
+        }
+        .middle{
+            display: flex;
+            justify-content: center;
+
+        }
+    </style>
+
 </head>
 
 <body>
@@ -20,7 +32,7 @@
 </div>
 
 <div class="middle">
-    <div class="num_of_sgs">
+    <div class="num-of-sgs">
         <h3>Found: {{$num_of_sgs}} SGs in you'r image.</h3>
     </div>
     <div class="data-container">
