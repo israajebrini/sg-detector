@@ -45,7 +45,7 @@
         <div class="description">
             <h2>About the site:</h2>
             <p>Recent researches have shown that stress granules' appearances rate, may have an effect on Parkinson's disease.
-                In order to study this effect, images of brain cells were taken and uploaded to an application that gave a list of points, of which it think as SG's. 
+                In order to study this effect, images of brain cells were taken and uploaded to an application that gave a list of points, which are perceived as SG's by the application. 
                 However, the lists include approximatly 90% points that aren't SGs.
                 This application takes those points and train a classification algorithm to classify them correctly as SGs or not.
                 We aim to upgrade the app to classify more types of points. and to collect another types of data.</p>
