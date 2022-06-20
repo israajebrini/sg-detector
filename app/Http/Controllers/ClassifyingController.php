@@ -18,9 +18,9 @@ class ClassifyingController extends Controller
             $data_path = Storage::disk('public')->putFile('folder-destination', $request->file('data'));
         }
         $script = 'python3 /usr/local/my-scripts/classify.py ' . '/var/www/laravel/storage/app/public/'. $img_path . ' ' . '/var/www/laravel/storage/app/public/'.$data_path;
-        $output_data = exec($script);
-        dd($output_data);
-        return view('classify_result');
+        $num_of_sgs = exec($script);
+
+        return view('classify_result',["num_of_sgs" => intval($num_of_sgs)]);
 
     }
 }

@@ -20,6 +20,9 @@
 </div>
 
 <div class="middle">
+    <div class="num_of_sgs">
+        <h3>Found: {{$num_of_sgs}} SGs in you'r image.</h3>
+    </div>
     <div class="data-container">
         <a href="{{asset('images/imageData.csv')}}" class="btn" download><i class="fa fa-download"></i> Download classified data </a>
     </div>
