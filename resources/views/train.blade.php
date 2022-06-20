@@ -189,60 +189,20 @@
         <fieldset style="display: flex;
             justify-content: center;
             border: solid 2px #4CAF50">
-            <div class="row">
-                <div class="col-6">
-                    <div class="input-group hdtuto control-group lst increment" >
-                        <input type="file" name="filenames[]" class="myfrm form-control">
-                        <div class="input-group-btn">
-                            <button class="btn btn-success" type="button"><i class="fldemo glyphicon glyphicon-plus"></i>Add</button>
-                        </div>
-                    </div>
-                    <div class="clone hide">
-                        <div class="hdtuto control-group lst input-group" style="margin-top:10px">
-                            <input type="file" name="filenames[]" class="myfrm form-control">
-                            <div class="input-group-btn">
-                                <button class="btn btn-danger" type="button"><i class="fldemo glyphicon glyphicon-remove"></i> Remove</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6">
-                    <div class="input-group hdtuto control-group lst increment" >
-                        <input type="file" name="filenames[]" class="myfrm form-control">
-                        <div class="input-group-btn">
-                            <button class="btn btn-success" type="button"><i class="fldemo glyphicon glyphicon-plus"></i>Add</button>
-                        </div>
-                    </div>
-                    <div class="clone hide">
-                        <div class="hdtuto control-group lst input-group" style="margin-top:10px">
-                            <input type="file" name="filenames[]" class="myfrm form-control">
-                            <div class="input-group-btn">
-                                <button class="btn btn-danger" type="button"><i class="fldemo glyphicon glyphicon-remove"></i> Remove</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="input">
+                <label style="padding-bottom: 40px;" for="image">Import images here</label>
+                <input type="file" name="images[]" id="images" accept=".jpg, .jpeg, .png" multiple>
             </div>
-
-
+            <div class="input">
+                <label  style="padding-bottom: 40px;" for="data">Import datas here</label>
+                <input type="file" name="datas[]" id="datas" accept=".csv" multiple>
+            </div>
         </fieldset>
         <div class="startButton">
             <button type="submit" class="startBtn">Start training</button>
         </div>
     </form>
 </div>
-<script type="text/javascript">
-    $(document).ready(function() {
-        $(".btn-success").click(function(){
-            var lsthmtl = $(".clone").html();
-            $(".increment").after(lsthmtl);
-        });
-        $("body").on("click",".btn-danger",function(){
-            $(this).parents(".hdtuto control-group lst").remove();
-        });
-    });
-</script>
-
 </body>
 
 </html>
