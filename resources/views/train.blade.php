@@ -8,6 +8,8 @@
     <title>Document</title>
     <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
+    <script src="jquery/1.9.1/jquery.js"></script>
+    <link rel="stylesheet" href="3.3.6/css/bootstrap.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@269&display=swap');
         body {
@@ -187,14 +189,42 @@
         <fieldset style="display: flex;
             justify-content: center;
             border: solid 2px #4CAF50">
-            <div class="input">
-                <label style="padding-bottom: 40px;" for="image">Import images here</label>
-                <input type="file" name="images[]" id="images" accept=".jpg, .jpeg, .png" multiple>
+            <div class="row">
+                <div class="col-6">
+                    <div class="input-group hdtuto control-group lst increment" >
+                        <input type="file" name="filenames[]" class="myfrm form-control">
+                        <div class="input-group-btn">
+                            <button class="btn btn-success" type="button"><i class="fldemo glyphicon glyphicon-plus"></i>Add</button>
+                        </div>
+                    </div>
+                    <div class="clone hide">
+                        <div class="hdtuto control-group lst input-group" style="margin-top:10px">
+                            <input type="file" name="filenames[]" class="myfrm form-control">
+                            <div class="input-group-btn">
+                                <button class="btn btn-danger" type="button"><i class="fldemo glyphicon glyphicon-remove"></i> Remove</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="input-group hdtuto control-group lst increment" >
+                        <input type="file" name="filenames[]" class="myfrm form-control">
+                        <div class="input-group-btn">
+                            <button class="btn btn-success" type="button"><i class="fldemo glyphicon glyphicon-plus"></i>Add</button>
+                        </div>
+                    </div>
+                    <div class="clone hide">
+                        <div class="hdtuto control-group lst input-group" style="margin-top:10px">
+                            <input type="file" name="filenames[]" class="myfrm form-control">
+                            <div class="input-group-btn">
+                                <button class="btn btn-danger" type="button"><i class="fldemo glyphicon glyphicon-remove"></i> Remove</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="input">
-                <label  style="padding-bottom: 40px;" for="data">Import datas here</label>
-                <input type="file" name="datas[]" id="datas" accept=".csv" multiple>
-            </div>
+
+
         </fieldset>
         <div class="startButton">
             <button type="submit" class="startBtn">Start training</button>
