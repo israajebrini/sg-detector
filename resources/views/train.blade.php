@@ -187,7 +187,7 @@
     <form action="{{route('start_training')}}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="add">
-            <button id="add"></button>
+            <button id="add" type="button"> add</button>
         </div>
         <fieldset style="display: flex;
             justify-content: center;
