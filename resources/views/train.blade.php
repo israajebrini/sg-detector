@@ -166,6 +166,8 @@
           class="dropzone"
           id="my-awesome-dropzone" method="post" enctype="multipart/form-data">
         <input type="file" name="file" />
+        <input type="file" name="file2" />
+
     </form>
     <form action="{{route('start_classify')}}" method="post" enctype="multipart/form-data">
         @csrf
