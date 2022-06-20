@@ -195,11 +195,11 @@
 
             <div id="img" class="input">
                 <label style="padding-bottom: 40px;" for="image">Import images here</label>
-                <input type="file" name="images[]" id="images" accept=".jpg, .jpeg, .png" multiple>
+                <input class="in1" type="file" name="images[]" id="images" accept=".jpg, .jpeg, .png" multiple>
             </div>
             <div id="csv" class="input">
                 <label style="padding-bottom: 40px;" for="data">Import datas here</label>
-                <input type="file" name="datas[]" id="datas" accept=".csv" multiple>
+                <input class="in2" type="file" name="datas[]" id="datas" accept=".csv" multiple>
             </div>
         </fieldset>
         <div class="startButton">
@@ -211,9 +211,10 @@
 
     $("#add").click(function(){
 
-        $("#img").clone().appendTo("#img");
+        $(".in1").clone().appendTo(".in1:last");
+        $(".in2").clone().appendTo(".in2:last");
 
-        $("#csv").clone().appendTo("#csv");
+
 
 
     });
