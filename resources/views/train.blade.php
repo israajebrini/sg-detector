@@ -162,38 +162,38 @@
 </div>
 
 <div class="TrainOrClassify">
-    <form action="{{route('start_classify')}}"
-          class="dropzone"
-          id="my-awesome-dropzone" method="post" enctype="multipart/form-data">
-        @csrf
-        <fieldset style="display: flex;
-            justify-content: center;
-            border: solid 2px #4CAF50">
-            <div class="input">
-                <label style="padding-bottom: 40px;" for="image">Import image here</label>
-                <input type="file" name="image" id="image" accept=".jpg, .jpeg, .png">
-            </div>
-            <div class="input">
-                <label  style="padding-bottom: 40px;" for="data">Import data here</label>
-                <input type="file" name="data" id="data" accept=".csv">
-            </div>
-        </fieldset>
-        <div class="startButton">
-            <button type="submit" class="startBtn">Start training</button>
-        </div>
-    </form>
+{{--    <form action="{{route('start_classify')}}"--}}
+{{--          class="dropzone"--}}
+{{--          id="my-awesome-dropzone" method="post" >--}}
+{{--        @csrf--}}
+{{--        <fieldset style="display: flex;--}}
+{{--            justify-content: center;--}}
+{{--            border: solid 2px #4CAF50">--}}
+{{--            <div class="input">--}}
+{{--                <label style="padding-bottom: 40px;" for="image">Import image here</label>--}}
+{{--                <input type="file" name="image" id="image" accept=".jpg, .jpeg, .png">--}}
+{{--            </div>--}}
+{{--            <div class="input">--}}
+{{--                <label  style="padding-bottom: 40px;" for="data">Import data here</label>--}}
+{{--                <input type="file" name="data" id="data" accept=".csv">--}}
+{{--            </div>--}}
+{{--        </fieldset>--}}
+{{--        <div class="startButton">--}}
+{{--            <button type="submit" class="startBtn">Start training</button>--}}
+{{--        </div>--}}
+{{--    </form>--}}
     <form action="{{route('start_classify')}}" method="post" enctype="multipart/form-data">
         @csrf
         <fieldset style="display: flex;
             justify-content: center;
             border: solid 2px #4CAF50">
             <div class="input">
-                <label style="padding-bottom: 40px;" for="image">Import image here</label>
-                <input type="file" name="image" id="image" accept=".jpg, .jpeg, .png">
+                <label style="padding-bottom: 40px;" for="image">Import images here</label>
+                <input type="file" name="images" id="images" accept=".jpg, .jpeg, .png" multiple>
             </div>
             <div class="input">
-                <label  style="padding-bottom: 40px;" for="data">Import data here</label>
-                <input type="file" name="data" id="data" accept=".csv">
+                <label  style="padding-bottom: 40px;" for="data">Import datas here</label>
+                <input type="file" name="datas" id="datas" accept=".csv" multiple>
             </div>
         </fieldset>
         <div class="startButton">
