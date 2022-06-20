@@ -25,6 +25,20 @@ class ClassifyingController extends Controller
     }
 
     function start_training(Request $request){
-        dd($request->all());
+
+        if($request->hasFile('images')){
+            $images = $request->file('images');
+            foreach ($images as $image){
+                $img_path = Storage::disk('public')->putFile('taining-imgs', $image);
+            }
+        }
+        if($request->hasFile('datas')){
+            $datas = $request->file('datas');
+            foreach ($datas as $data){
+                $img_path = Storage::disk('public')->putFile('taining-datas', $data);
+            }
+        }
+
+
     }
 }
