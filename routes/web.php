@@ -25,4 +25,6 @@ Route::get('/classify', function () {
     return view('classify');
 })->name('classify');
 
+
+
 Route::post('/start-classifying','App\Http\Controllers\ClassifyingController@start_classify')->name('start_classify');
