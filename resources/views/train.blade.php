@@ -160,28 +160,24 @@
 </div>
 
 <div class="TrainOrClassify">
-    <form action="">
-        <div class="labels">
-            <a3><label for="images">Drop images here</label></a3>
-            <a4><label for="taples">Drop taples here</label></a4>
+    <form action="{{route('start_classify')}}" method="post" enctype="multipart/form-data">
+        @csrf
+        <fieldset style="display: flex;
+            justify-content: center;
+            border: solid 2px #4CAF50">
+            <div class="input">
+                <label style="padding-bottom: 40px;" for="image">Import image here</label>
+                <input type="file" name="image" id="image" accept=".jpg, .jpeg, .png">
+            </div>
+            <div class="input">
+                <label  style="padding-bottom: 40px;" for="data">Import data here</label>
+                <input type="file" name="data" id="data" accept=".csv">
+            </div>
+        </fieldset>
+        <div class="startButton">
+            <button type="submit" class="startBtn">Start training</button>
         </div>
-        <div class="input">
-            <a1><input type="file" name="images" id="images" accept=".jpg, .jpeg, .png"></a1>
-            <a2><input type="file" name="taples" id="taples" accept=".csv"></a2>
-        </div>
-
     </form>
-</div>
-<div class="startButton">
-    <form action=""></form>
-    <nav>
-        <ul>
-            <a href="chooseDesiredImages.html">Start training</a>
-        </ul>
-    </nav>
-</div>
-
-
 </div>
 </body>
 
