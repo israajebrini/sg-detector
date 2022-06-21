@@ -169,11 +169,11 @@
 </div>
 <div class="startButton">
     <div class="images-container">
-{{--        @foreach($img_arr as $img)--}}
-{{--        <div class="img-container">--}}
-{{--            <img src="{{asset($img)}}">--}}
-{{--        </div>--}}
-{{--         @endfor--}}
+        @foreach($img_arr as $img)
+        <div class="img-container">
+            <img src="{{asset($img)}}">
+        </div>
+         @endfor
     </div>
 
         <ul>
