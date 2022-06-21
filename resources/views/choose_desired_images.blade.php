@@ -173,7 +173,7 @@
         <div class="img-container">
             <img src="{{asset($img)}}">
         </div>
-         @endfor
+        @endforeach
     </div>
 
         <ul>
