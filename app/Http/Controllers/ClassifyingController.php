@@ -42,8 +42,7 @@ class ClassifyingController extends Controller
                 $data_arr[] = $img_path;
             }
         }
-        dd("ok");
-        return view('create')->with('data', compact('img_arr','data_arr'));
+        return view('choose_desired_images')->with('data', compact('img_arr','data_arr'));
 
 
     }
