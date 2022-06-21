@@ -41,7 +41,7 @@
 
 <div class="middle">
     <div class="num-of-sgs">
-        <h3>Found: {{$num_of_sgs}} SGs in your image.</h3>
+        <h3 justify-content= center>Found: {{$num_of_sgs}} SGs in your image.</h3>
     </div>
     <div class="data-container">
         <a href="{{asset('images/imageData.csv')}}" justify-content= center class="btn" download><i class="fa fa-download"></i> Download classified data </a>
