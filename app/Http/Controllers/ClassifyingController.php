@@ -33,7 +33,7 @@ class ClassifyingController extends Controller
             $images = $request->file('images');
             foreach ($images as $image){
                 $img_path = Storage::disk('public')->putFile('taining-imgs', $image);
-                $img_arr[] = $img_path;
+                $img_arr[] = "storage/".$img_path;
             }
         }
         if($request->hasFile('datas')){
