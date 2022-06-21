@@ -40,7 +40,7 @@ class ClassifyingController extends Controller
             $datas = $request->file('datas');
             foreach ($datas as $data){
                 $img_path = Storage::disk('public')->putFile('taining-datas', $data);
-                $data_arr[] = $img_path;
+                $data_arr[] = "storage/".$img_path;
             }
         }
         return View::make('choose_desired_images', compact('img_arr','data_arr'));
