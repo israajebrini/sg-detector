@@ -171,7 +171,7 @@
     <div class="images-container">
         @foreach($img_arr as $img)
         <div class="img-container">
-            <img src="{{asset($img)}}">
+            <img src="{{asset($img)}}" style="width: 200px; padding-right: 5px">
         </div>
         @endforeach
     </div>
