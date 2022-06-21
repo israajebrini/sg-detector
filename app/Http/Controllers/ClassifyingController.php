@@ -26,18 +26,24 @@ class ClassifyingController extends Controller
 
     function start_training(Request $request){
 
+        $img_arr = [];
+        $data_arr = [];
         if($request->hasFile('images')){
             $images = $request->file('images');
             foreach ($images as $image){
                 $img_path = Storage::disk('public')->putFile('taining-imgs', $image);
+                $img_arr[] = $img_path;
             }
         }
         if($request->hasFile('datas')){
             $datas = $request->file('datas');
             foreach ($datas as $data){
                 $img_path = Storage::disk('public')->putFile('taining-datas', $data);
+                $data_arr[] = $img_path;
             }
         }
+
+        return view('choose_desired_images', compact('img_arr','data_arr' ));
 
 
     }
