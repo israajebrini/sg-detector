@@ -147,7 +147,7 @@
 <body>
 <div class="hero-bg">
     <header>
-        <h1><a href="main.html">Stress Granules detector</a></h1>
+        <h1><a href="{{route('welcome')}}">Stress Granules detector</a></h1>
         <p>by Yakeen & Israa</p>
 
     </header>
