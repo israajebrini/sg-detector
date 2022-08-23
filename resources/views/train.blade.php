@@ -199,7 +199,7 @@
             </div>
             <div id="csv" class="input">
                 <label style="padding-bottom: 40px;" for="data">Import datas here</label>
-                <input class="in2" type="file" name="datas[]" id="datas" accept=".csv" multiple>
+                < input class="in2" type="file" name="datas[]" id="datas" accept=".csv" multiple>
             </div>
         </fieldset>
         <div class="startButton">
