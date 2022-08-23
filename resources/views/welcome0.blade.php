@@ -30,12 +30,12 @@
                     <p>by Yakeen & Israa</p>
 
                 </header>
-                
+
                 <div class="choice">
                     <form action=""></form>
                     <nav>
                         <a1><a href="{{route('welcome')}}">Detect Stress Granules</a></a1>
-                        <a2><a href="{{route('data_collection')}}">Collect Data</a></a2>
+                        <a2><a href="{{route('data.collection')}}">Collect Data</a></a2>
                     </nav>
                 </div>
             </section>

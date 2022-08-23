@@ -17,6 +17,14 @@ Route::get('/', function () {
     return view('welcome0');
 })->name('home');
 
+Route::get('welcome', function () {
+   return view('welcome');
+})->name('welcome');
+
+Route::get('data/collection', function () {
+    return view('welcome');
+})->name('data.collection');
+
 Route::get('/train', function () {
     return view('train');
 })->name('train');
