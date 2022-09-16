@@ -22,7 +22,7 @@ Route::get('welcome', function () {
 })->name('welcome');
 
 Route::get('data/collection', function () {
-    return view('welcome');
+    return view('data_collection');
 })->name('data.collection');
 
 Route::get('/train', function () {
