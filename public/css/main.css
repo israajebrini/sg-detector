@@ -5,8 +5,10 @@ body {
     background-color: black;
 }
 .hero-bg{
-    background: center  url(../images/800wm.jpeg);
+    background: center  url(../images/pg.bng);
     color:white;
+    background-color: black;
+
     text-align: center;
     padding-bottom: 1em;
 }
