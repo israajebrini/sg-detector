@@ -23,7 +23,7 @@
         }
         .hero-bg{
             /* background-color: hsl(187, 47%, 46%); */
-            background: center  url(../images/800wm.jpeg);
+            background: center  url(../images/bg.png);
             color:white;
             text-align: center;
             padding-bottom: 2em;
