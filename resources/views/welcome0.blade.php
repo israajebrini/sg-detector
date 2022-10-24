@@ -26,15 +26,17 @@
         <div class="hero-bg">
             <section class="top">
                 <header>
-                    <h1>SITE_NAME</h1>
+                    <h1>Stress Granules detector</h1>
                     <p>by Yakeen & Israa</p>
 
                 </header>
-
+                <p1>In order to collect data from you're own images click "Collect Data".</p1>
+                <p2>To classify a set of points click "Classify"</p2>
                 <div class="choice">
                     <form action=""></form>
                     <nav>
-                        <a1><a href="{{route('welcome')}}">Detect Stress Granules</a></a1>
+                        <!-- <a1><a href="{{route('welcome')}}">Detect Stress Granules</a></a1> -->
+                        <a1><a href="{{route('classify')}}">Classify</a></a1>
                         <a2><a href="{{route('data.collection')}}">Collect Data</a></a2>
                     </nav>
                 </div>
