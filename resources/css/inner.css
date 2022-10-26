@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@269&display=swap');
-body {
+body.antialiased {
+    background: url(../images/pg.png) no-repeat center center fixed; 
+  /* -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; */
+}body {
     
     /* background: center no-repeat url(../images/800wm.jpeg); */
 
@@ -9,13 +15,7 @@ body {
     color: white;
     text-decoration: none;
 }
-body.antialiased {
-    background: url(../images/pg.png) no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
+
 a{
     color: white;
     text-decoration: none;
