@@ -1,14 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@269&display=swap');
-body.antialiased {
-    background: url(../images/pg.png) no-repeat center center fixed; 
-  /* -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover; */
-}body {
+body {
     
     /* background: center no-repeat url(../images/800wm.jpeg); */
-
     /* background-color: black; */
     font-family: 'Montserrat', sans-serif;
     margin: 0;
