@@ -19,7 +19,7 @@
                 font-family: 'Nunito', sans-serif;
             }
         </style>
-        <link rel="stylesheet" href="{{asset('resources/css/inner.css')}}">
+        <link rel="stylesheet" href="{{asset('css/inner.css')}}">
 
     </head>
     <body class="antialiased">
