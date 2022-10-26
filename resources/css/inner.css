@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@269&display=swap');
 body {
-    background: center no-repeat  url(../images/pg.png);
-
+    background: no-repeat  url(../images/pg.png);
     background-color: black;
     font-family: 'Montserrat', sans-serif;
     margin: 0;
