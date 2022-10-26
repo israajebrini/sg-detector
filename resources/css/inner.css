@@ -9,7 +9,7 @@ body {
     color: white;
     text-decoration: none;
 }
-.antialiased {
+body.antialiased {
     background: url(../images/pg.png) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
