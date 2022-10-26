@@ -16,15 +16,15 @@
 
         <style>
             body {
+                background: center  url(../images/pg.png);
                 font-family: 'Nunito', sans-serif;
             }
         </style>
-        <style>
+    
         <link rel="stylesheet" href="{{asset('css/inner.css')}}">
-        </style>
+
     </head>
     <body class="antialiased">
-        
         <div class="hero-bg">
             <section class="top">
                 <header>
