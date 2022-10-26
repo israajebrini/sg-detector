@@ -18,12 +18,10 @@
             body {
                 background: center  url(../images/pg.png);
                 font-family: 'Nunito', sans-serif;
-            
-            /* font-family: 'Montserrat', sans-serif; */
-            margin: 0;
-            color: white;
-            text-decoration: none;
-        }
+                margin: 0;
+                color: white;
+                text-decoration: none;
+            }
         a{
             color: white;
             text-decoration: none;
@@ -36,7 +34,7 @@
 
         }
         header{
-            padding: 0.5em  ;
+            /* padding: 0.5em  ; */
             font-size: larger;
         }
         .hero-bg a{
@@ -48,6 +46,7 @@
         .description {
             margin: 3em 3em 3em 3em ;
             text-align: center;
+            text: bold;
 
         }
         .button {
