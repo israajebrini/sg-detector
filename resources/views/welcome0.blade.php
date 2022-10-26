@@ -21,7 +21,7 @@
             }
         </style>
     
-        <link rel="stylesheet" href="{{asset('css/inner.css')}}">
+        <!-- <link rel="stylesheet" href="{{asset('css/inner.css')}}"> -->
 
     </head>
     <body class="antialiased">
