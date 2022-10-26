@@ -46,7 +46,7 @@
         .description {
             margin: 3em 3em 3em 3em ;
             text-align: center;
-            text: bold;
+            font-weight: bold;
 
         }
         .button {
