@@ -19,8 +19,9 @@
                 font-family: 'Nunito', sans-serif;
             }
         </style>
+        <style>
         <link rel="stylesheet" href="{{asset('css/inner.css')}}">
-
+        </style>
     </head>
     <body class="antialiased">
         
