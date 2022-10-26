@@ -19,7 +19,7 @@
                 font-family: 'Nunito', sans-serif;
             }
         </style>
-        <link rel="stylesheet" href="{{asset('css/inner.css')}}">
+        <link rel="stylesheet" href="{{asset('css/main.css')}}">
 
     </head>
     <body class="antialiased">
@@ -41,8 +41,8 @@
                     </nav>
                 </div>
             </section>
-        <!-- </div> -->
-        <!-- <div class="description"> -->
+        </div>
+        <div class="description">
             <h2>About the site:</h2>
             <p>Recent researches have shown that stress granules' appearances rate, may have an effect on Parkinson's disease.
                 In order to study this effect, images of brain cells were taken and uploaded to an application that gave a list of points, which are perceived as SG's by the application. 
