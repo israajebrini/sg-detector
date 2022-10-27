@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@269&display=swap');
 body {
-    background-color: black;
+    /* background: center  url(../images/pg.png); */
+    /* background-color: black; */
     font-family: 'Montserrat', sans-serif;
     margin: 0;
     color: white;
@@ -13,8 +14,7 @@ a{
 }
 .hero-bg{
     /* background-color: hsl(187, 47%, 46%); */
-    background: center  url(../images/pg.png);
-    background-color: black;
+    /* background-color: black; */
     color:white;
     text-align: center;
     padding-bottom: 2em;

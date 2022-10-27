@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}"> // ??
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" > // ??
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,25 +16,155 @@
 
         <style>
             body {
+                background: center  url(../images/pg.png);
                 font-family: 'Nunito', sans-serif;
+                margin: 0;
+                color: white;
+                text-decoration: none;
             }
+        a{
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .hero-bg{
+            color:white;
+            text-align: center;
+            padding-bottom: 2em;
+
+        }
+        header{
+            /* padding: 0.5em  ; */
+            font-size: larger;
+        }
+        .hero-bg a{
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .description {
+            margin: 3em 3em 3em 3em ;
+            text-align: center;
+            font-weight: bold;
+
+        }
+        .button {
+            margin: 2em;
+            /* box-sizing: ; */
+        }
+        .startButton{
+            text-align: center;
+            margin: 4em 0em 0em -2em;
+
+        }
+        .startBtn {
+            color: rgb(67, 199, 85);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 150%;
+        }
+
+        .TrainOrClassify a3{
+            margin: 0em 0em 0em 21.5em ;
+            padding-bottom: 6em;
+
+
+        }
+        .TrainOrClassify a4{
+            margin: 0em 0em 0em 16.5em ;
+            padding-bottom: 6em;
+
+        }
+
+        .TrainOrClassify a1{
+            color: white;
+            border: 2px solid #4CAF50; /* Green */
+            margin: 0em 3em 0em 0em;
+            border-radius: 4px;
+            font-size: 24px;
+            padding: 32px 32px;
+        }
+        .TrainOrClassify a2{
+            color: white;
+            border: 2px solid #4CAF50; /* Green */
+            border-radius: 4px;
+            font-size: 24px;
+            padding: 32px 32px;
+        }
+        .choice{
+            margin: 2em;
+            font-size: 180%;
+            text-align: center;
+
+        }
+        /* text inside the box - to be deleted when adding image and table */
+        .choice a1{
+
+            margin: 0em 10em 0em 0em ;
+        }
+        .choice a2{
+
+            margin: 0em 0em 0em 0em ;
+        }
+
+        /* text desscrition of the boxes */
+        .results a3{
+            margin: 0em 0em 0em 25em ;
+        }
+        .results a4{
+            margin: 0em 0em 0em 20em ;
+            padding-bottom: 6em;
+
+        }
+
+        .results a1{
+            border: 2px solid #4CAF50; /* Green */
+            margin: 0em 3em 0em 0em;
+            border-radius: 4px;
+            font-size: 24px;
+            padding: 32px 32px;
+        }
+        .results a2{
+            border: 2px solid #4CAF50; /* Green */
+            /* margin: 5em 6em ; */
+            border-radius: 4px;
+            font-size: 24px;
+            padding: 32px 32px;
+        }
+
+        fieldset{
+            display: flex !important;
+            justify-content: center !important;
+            border: solid 2px #4CAF50 !important;
+
+        }
+
+        .input{
+            display: flex;
+            flex-direction: column;
+            margin: 40px;
+        }
         </style>
-        <link rel="stylesheet" href="{{asset('css/main.css')}}">
+    
+        <!-- <link rel="stylesheet" href="{{asset('css/inner.css')}}"> -->
 
     </head>
     <body class="antialiased">
         <div class="hero-bg">
             <section class="top">
                 <header>
-                    <h1>SITE_NAME</h1>
+                    <h1>Stress Granules detector</h1>
                     <p>by Yakeen & Israa</p>
 
                 </header>
-
+                <p1>In order to collect data from you're own images click "Collect Data".</p1>
+                <p2>To classify a set of points click "Classify"</p2>
                 <div class="choice">
                     <form action=""></form>
                     <nav>
-                        <a1><a href="{{route('welcome')}}">Detect Stress Granules</a></a1>
+                        <!-- <a1><a href="{{route('welcome')}}">Detect Stress Granules</a></a1> -->
+                        <a1><a href="{{route('classify')}}">Classify</a></a1>
                         <a2><a href="{{route('data.collection')}}">Collect Data</a></a2>
                         <a2><a href="{{route('classifyByUser')}}">Classify By User</a></a2>
 
