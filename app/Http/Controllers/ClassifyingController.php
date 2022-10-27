@@ -53,7 +53,7 @@ class ClassifyingController extends Controller
         if ($request->hasFile('image')) {
             $img_path = Storage::disk('public')->putFile('self-classify-images', $request->file('image'));
             $image = new BaseImage;
-            $image->name = $img_path;
+            $image->path = $img_path;
             $image->save();
         }else{
             return Redirect::back()->with('message','please upload image !');
