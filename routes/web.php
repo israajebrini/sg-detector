@@ -33,7 +33,12 @@ Route::get('/classify', function () {
     return view('classify');
 })->name('classify');
 
+Route::get('/classifyByUser', function () {
+    return view('self_classify');
+})->name('classifyByUser');
 
 
 Route::post('/start-classifying','App\Http\Controllers\ClassifyingController@start_classify')->name('start_classify');
-Route::post('/start-training','App\Http\Controllers\ClassifyingController@start_training')->name('start_training');
+Route::post('/upload-image','App\Http\Controllers\ClassifyingController@self_training')->name('save_image');
+
+

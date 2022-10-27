@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BaseImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Symfony\Component\Process\Process;
@@ -47,4 +48,17 @@ class ClassifyingController extends Controller
 
 
     }
+
+    function self_training(Request $request){
+        if ($request->hasFile('image')) {
+            $img_path = Storage::disk('public')->putFile('self-classify-images', $request->file('image'));
+            $image = new BaseImage;
+            $image->name = $img_path;
+            $image->save();
+        }else{
+            return Redirect::back()->with('message','please upload image !');
+        }
+    }
+
+
 }
