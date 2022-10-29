@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Classify algorithm</title>
     <link rel="stylesheet" href="{{asset('css/inner.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.css" integrity="sha512-+VDbDxc9zesADd49pfvz7CgsOl2xREI/7gnzcdyA9XjuTxLXrdpuz21VVIqc5HPfZji2CypSbxx1lgD7BgBK5g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -33,7 +34,7 @@
 
 <div class="TrainOrClassify">
     <div class="image-container">
-        <img src="{{ url('storage/'.$image->path) }}"  style="width: 50% ; border: 20px solid #4CAF50">
+        <img id="image" src="{{ url('storage/'.$image->path) }}"  style="display: block;max-width: 100% ; border: 20px solid #4CAF50">
     </div>
 {{--    <form action="{{route('save_image')}}" method="post" enctype="multipart/form-data">--}}
 {{--        @csrf--}}
@@ -52,6 +53,18 @@
 </div>
 
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.js" integrity="sha512-ZK6m9vADamSl5fxBPtXw6ho6A4TuX89HUbcfvxa2v2NYNT/7l8yFGJ3JlXyMN4hlNbz0il4k6DvqbIW5CCwqkw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', function () {
+        var images = document.querySelectorAll('img');
+        var length = images.length;
+        var croppers = [];
+        var i;
 
+        for (i = 0; i < length; i++) {
+            croppers.push(new Cropper(images[i]));
+        }
+    });
+</script>
 </html>
 
