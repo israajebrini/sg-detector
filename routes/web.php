@@ -36,6 +36,9 @@ Route::get('/classify', function () {
 Route::get('/classifyByUser', function () {
     return view('self_classify');
 })->name('classifyByUser');
+Route::get('/image/{id}/choosespot', function () {
+    return view('self_classify_spots');
+})->name('image.spot');
 
 
 Route::post('/start-classifying','App\Http\Controllers\ClassifyingController@start_classify')->name('start_classify');

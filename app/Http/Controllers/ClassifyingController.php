@@ -58,6 +58,12 @@ class ClassifyingController extends Controller
         }else{
             return Redirect::back()->with('message','please upload image !');
         }
+        return $this->self_training_spots($image->id);
+    }
+
+    function self_training_spots($id){
+        $image = BaseImage::find($id);
+        return view('self_classify_spots',["image" => $image]);
     }
 
 
