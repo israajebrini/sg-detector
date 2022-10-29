@@ -33,7 +33,7 @@
 
 <div class="TrainOrClassify">
     <div class="image-container">
-        <img src="{{ url('storage/images/'.$image->path) }}"  style="width: 50% ; border: 20px solid #4CAF50">
+        <img src="{{ url('storage/'.$image->path) }}"  style="width: 50% ; border: 20px solid #4CAF50">
     </div>
 {{--    <form action="{{route('save_image')}}" method="post" enctype="multipart/form-data">--}}
 {{--        @csrf--}}
