@@ -40,7 +40,7 @@
 {{--    </div>--}}
 {{--    <button id="send" >Send</button>--}}
 
-    <input type="file" name="image" id="image" onchange="readURL(this);"/>
+    <input type="file" name="image" id="image" value="{{ url('storage/'.$image->path) }}"/>
     <div class="image_container">
         <img id="blah" src="#" alt="your image" />
     </div>
@@ -68,7 +68,8 @@
 <script src="https://unpkg.com/bootstrap@4/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.js" integrity="sha512-ZK6m9vADamSl5fxBPtXw6ho6A4TuX89HUbcfvxa2v2NYNT/7l8yFGJ3JlXyMN4hlNbz0il4k6DvqbIW5CCwqkw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
-    function readURL(input) {
+    window.addEventListener('DOMContentLoaded', function () {
+
         if (input.files && input.files[0]) {
             var reader = new FileReader();
             reader.onload = function (e) {
@@ -77,7 +78,7 @@
             reader.readAsDataURL(input.files[0]);
             setTimeout(initCropper, 1000);
         }
-    }
+    });
     function initCropper(){
         var image = document.getElementById('blah');
         var cropper = new Cropper(image, {
