@@ -66,5 +66,8 @@ class ClassifyingController extends Controller
         return view('self_classify_spots',["image" => $image]);
     }
 
+    function upload(Request $request){
+        dd($request->all());
+    }
 
 }

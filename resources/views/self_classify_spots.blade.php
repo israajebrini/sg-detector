@@ -36,6 +36,7 @@
     <div class="image-container">
         <img id="image" src="{{ url('storage/'.$image->path) }}"  style="display: block;max-width: 100% ; border: 20px solid #4CAF50">
     </div>
+    <button id="send" >Send</button>
 {{--    <form action="{{route('save_image')}}" method="post" enctype="multipart/form-data">--}}
 {{--        @csrf--}}
 {{--        <fieldset style="display: flex;--}}
@@ -53,18 +54,72 @@
 </div>
 
 </body>
+<script src="https://unpkg.com/jquery@3/dist/jquery.min.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/bootstrap@4/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.js" integrity="sha512-ZK6m9vADamSl5fxBPtXw6ho6A4TuX89HUbcfvxa2v2NYNT/7l8yFGJ3JlXyMN4hlNbz0il4k6DvqbIW5CCwqkw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
     window.addEventListener('DOMContentLoaded', function () {
-        var images = document.querySelectorAll('img');
-        var length = images.length;
-        var croppers = [];
-        var i;
+        var image = document.getElementById('image');
+        var cropper = new Cropper(image, {
+            aspectRatio: 1,
+            viewMode: 3,
+        });
+        if (cropper) {
+            canvas = cropper.getCroppedCanvas({
+                width: 160,
+                height: 160,
+            });
 
-        for (i = 0; i < length; i++) {
-            croppers.push(new Cropper(images[i]));
         }
-    });
+
+        document.getElementById('send').addEventListener('click', function () {
+            initialAvatarURL = avatar.src;
+            avatar.src = canvas.toDataURL();
+
+            canvas.toBlob(function (blob) {
+                var formData = new FormData();
+
+                formData.append('avatar', blob, 'avatar.jpg');
+                $.ajax('http://206.81.20.227/posts', {
+                    method: 'POST',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+
+                    xhr: function () {
+                        var xhr = new XMLHttpRequest();
+
+                        xhr.upload.onprogress = function (e) {
+                            var percent = '0';
+                            var percentage = '0%';
+
+                            if (e.lengthComputable) {
+                                percent = Math.round((e.loaded / e.total) * 100);
+                                percentage = percent + '%';
+                                $progressBar.width(percentage).attr('aria-valuenow', percent).text(percentage);
+                            }
+                        };
+
+                        return xhr;
+                    },
+
+                    success: function () {
+                        $alert.show().addClass('alert-success').text('Upload success');
+                    },
+                    error: function () {
+                        avatar.src = initialAvatarURL;
+                        $alert.show().addClass('alert-warning').text('Upload error');
+                    },
+
+                    complete: function () {
+                        $progress.hide();
+                    },
+                });
+            });
+        });
+
+
+        });
 </script>
 </html>
 
