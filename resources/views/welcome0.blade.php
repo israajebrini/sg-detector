@@ -110,31 +110,7 @@
             margin: 0em 0em 0em 0em ;
         }
 
-        /* text desscrition of the boxes */
-        .results a3{
-            margin: 0em 0em 0em 25em ;
-        }
-        .results a4{
-            margin: 0em 0em 0em 20em ;
-            padding-bottom: 6em;
-
-        }
-
-        .results a1{
-            border: 2px solid #4CAF50; /* Green */
-            margin: 0em 3em 0em 0em;
-            border-radius: 4px;
-            font-size: 24px;
-            padding: 32px 32px;
-        }
-        .results a2{
-            border: 2px solid #4CAF50; /* Green */
-            /* margin: 5em 6em ; */
-            border-radius: 4px;
-            font-size: 24px;
-            padding: 32px 32px;
-        }
-
+    
         fieldset{
             display: flex !important;
             justify-content: center !important;
