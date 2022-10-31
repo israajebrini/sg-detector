@@ -56,7 +56,7 @@ class ClassifyingController extends Controller
             $image->path = $img_path;
             $image->save();
         }else{
-            return Redirect::back()->with('message','please upload image !');
+            return redirect()->back();
         }
         return $this->self_training_spots($image->id);
     }
@@ -66,5 +66,8 @@ class ClassifyingController extends Controller
         return view('self_classify_spots',["image" => $image]);
     }
 
+    function upload(Request $request){
+        dd($request->all());
+    }
 
 }

@@ -41,6 +41,7 @@ Route::get('/image/{id}/choosespot', function () {
     return view('self_classify_spots');
 })->name('image.spot');
 
+Route::post('/posts','App\Http\Controllers\ClassifyingController@upload');
 
 Route::post('/start-classifying','App\Http\Controllers\ClassifyingController@start_classify')->name('start_classify');
 Route::post('/upload-image','App\Http\Controllers\ClassifyingController@self_training')->name('save_image');
