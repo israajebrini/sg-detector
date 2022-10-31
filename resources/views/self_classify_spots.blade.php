@@ -40,9 +40,8 @@
 {{--    </div>--}}
 {{--    <button id="send" >Send</button>--}}
 
-    <input type="file" name="image" id="image" value="{{ url('storage/'.$image->path) }}"/>
     <div class="image_container">
-        <img id="blah" src="#" alt="your image" />
+        <img id="blah" src="{{ url('storage/'.$image->path) }}" alt="your image" />
     </div>
     <div id="cropped_result"></div>        // Cropped image to display (only if u want)
     <button id="crop_button">Crop</button> // Will trigger crop event
@@ -69,17 +68,38 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.js" integrity="sha512-ZK6m9vADamSl5fxBPtXw6ho6A4TuX89HUbcfvxa2v2NYNT/7l8yFGJ3JlXyMN4hlNbz0il4k6DvqbIW5CCwqkw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
     window.addEventListener('DOMContentLoaded', function () {
-        var input = document.getElementById('image');
-        console.log(input.files[0]);
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-            reader.onload = function (e) {
-                $('#blah').attr('src', e.target.result)
-            };
-            reader.readAsDataURL(input.files[0]);
-            setTimeout(initCropper, 1000);
-        }
+        initCropper();
     });
+    $('#crop_button').click(function(){
+        // Upload cropped image to server if the browser supports `HTMLCanvasElement.toBlob`.
+        // Store crop coordinates to db for future visit.
+        var canvas = $imageBox.cropper('getCroppedCanvas');
+        canvas.toBlob(function (blob) {
+            var formData = new FormData();
+            formData.append('croppedImage', blob);  // 'croppedImage' is the sent filename
+            formData.append('last_crop', JSON.stringify($imageBox.cropper('getCropBoxData')));
+
+            $.ajax('http://206.81.20.227/posts', {
+                method: "POST",
+                data: formData,
+                processData: false,
+                contentType: false,
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function () {
+                    console.log('Upload success');
+                },
+                error: function () {
+                    console.log('Upload error');
+                }
+            });
+        }, "image/jpeg", 0.75);
+
+        // Also update masthead image after crop
+        $('#masthead-avatar').attr('src', canvas.toDataURL());
+    });
+
     function initCropper(){
         var image = document.getElementById('blah');
         var cropper = new Cropper(image, {
@@ -89,38 +109,6 @@
                 console.log(e.detail.y);
             }
         });
-
-        // On crop button clicked
-        document.getElementById('crop_button').addEventListener('click', function(){
-            var imgurl =  cropper.getCroppedCanvas().toDataURL();
-            var img = document.createElement("img");
-            img.src = imgurl;
-            document.getElementById("cropped_result").appendChild(img);
-
-
-
-                cropper.getCroppedCanvas().toBlob(function (blob) {
-                      var formData = new FormData();
-                      formData.append('croppedImage', blob);
-                      // Use `jQuery.ajax` method
-                      $.ajax('http://206.81.20.227/posts', {
-                        method: "POST",
-                        data: formData,
-                        processData: false,
-                        contentType: false,
-                        headers: {
-                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                        },
-                        success: function () {
-                          console.log('Upload success');
-                        },
-                        error: function () {
-                          console.log('Upload error');
-                        }
-                      });
-                });
-
-        })
     }
     // window.addEventListener('DOMContentLoaded', function () {
     //     var image = document.getElementById('image');
