@@ -17,7 +17,7 @@
         <style>
             body {
                 background: center  url(../images/pg.png);
-                font-family: 'Nunito', sans-serif;
+                font-family: 'Montserrat', sans-serif;
                 margin: 0;
                 color: white;
                 text-decoration: none;
