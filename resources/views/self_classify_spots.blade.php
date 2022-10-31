@@ -83,7 +83,7 @@
         // Upload cropped image to server if the browser supports `HTMLCanvasElement.toBlob`.
         // Store crop coordinates to db for future visit.
         $imageBox = $('#blah');
-        var canvas = $imageBox.cropper('getCroppedCanvas');
+        var canvas = cropper.getCroppedCanvas();
         canvas.toBlob(function (blob) {
             var formData = new FormData();
             formData.append('croppedImage', blob);  // 'croppedImage' is the sent filename
