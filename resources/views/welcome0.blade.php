@@ -24,8 +24,8 @@
                     <nav>
                         <!-- <a1><a href="{{route('welcome')}}">Detect Stress Granules</a></a1> -->
                         <a1><a href="{{route('classify')}}">Classify</a></a1>
-                        <a2><a href="{{route('data.collection')}}">Collect Data</a></a2>
-                        <a2><a href="{{route('classifyByUser')}}">Classify By User</a></a2>
+                        <!-- <a2><a href="{{route('data.collection')}}">Collect Data</a></a2> -->
+                        <a2><a href="{{route('classifyByUser')}}">Collect Data</a></a2>
 
                     </nav>
                 </div>
