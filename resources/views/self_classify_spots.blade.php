@@ -69,16 +69,16 @@
 <script>
     window.addEventListener('DOMContentLoaded', function () {
         initCropper();
-        var image = document.getElementById('blah');
-        var cropper = new Cropper(image, {
-            aspectRatio: 1 / 1,
-            crop: function(e) {
-                console.log(e.detail.x);
-                console.log(e.detail.y);
-            }
-        });
-    });
 
+    });
+    var image = document.getElementById('blah');
+    var cropper = new Cropper(image, {
+        aspectRatio: 1 / 1,
+        crop: function(e) {
+            console.log(e.detail.x);
+            console.log(e.detail.y);
+        }
+    });
     $('#crop_button').click(function(){
         // Upload cropped image to server if the browser supports `HTMLCanvasElement.toBlob`.
         // Store crop coordinates to db for future visit.
