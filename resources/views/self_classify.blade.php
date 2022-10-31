@@ -12,7 +12,7 @@
 <body>
 <div class="hero-bg">
     <header>
-        <h1><a href="route('/')">Stress Granules detector</a></h1>
+        <h1><a href="route('home')">Stress Granules detector</a></h1>
         <p>by Yakeen & Israa</p>
 
 
@@ -20,15 +20,7 @@
 </div>
 
 <div class="description">
-    <h2>Classify</h2>
-
-    <p1>In order to classify suspicted points list. Do as follow:</p1>
-    <p2>Enter the image you want to classify and the Excel taple which includes
-        the x,y coordinates of the points suspicted as SGs. then click "Classify"</p2>
-    <p3>After classefing you'r image, we will circle the points that where classified as SGs and the image will pop
-    </p3>
-    <p4>And a taple of the coordinates of the suspicted points with zeroes for the points that are not SGs,
-        and ones for the SGs will be converted.</p4>
+    <h2>description + user guide </h2>
 </div>
 
 <div class="TrainOrClassify">
