@@ -16,10 +16,9 @@ return new class extends Migration
         Schema::create('spots', function (Blueprint $table) {
             $table->id();
             $table->string('path');
-            $table->integer('image_id')->unsigned();
+            $table->bigInteger('image_id')->unsigned()->index();
             $table->foreign('image_id')->references('id')->on('images')->onDelete('cascade');
             $table->timestamps();
-            $table->index('image_id');
 
         });
     }
