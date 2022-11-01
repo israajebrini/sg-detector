@@ -87,7 +87,7 @@
         canvas.toBlob(function (blob) {
             var formData = new FormData();
             formData.append('croppedImage', blob);  // 'croppedImage' is the sent filename
-            formData.append('last_crop', JSON.stringify($imageBox.cropper('getCropBoxData')));
+            formData.append('last_crop', JSON.stringify(cropper.getCropBoxData()));
 
             $.ajax('http://206.81.20.227/posts', {
                 method: "POST",
