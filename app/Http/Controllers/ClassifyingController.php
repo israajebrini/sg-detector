@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\BaseImage;
 use App\Models\Spot;
+use http\Env\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Symfony\Component\Process\Process;
@@ -74,10 +75,10 @@ class ClassifyingController extends Controller
              $image->path = $img_path;
              $image->image_id = 1;
              $image->save();
-             return redirect()->back();
+             return response('Hello World', 200);
 
          }else{
-             return redirect()->back();
+             return response('Hello World', 200);
          }
     }
 
