@@ -86,37 +86,40 @@ class ClassifyingController extends Controller
 
     function downloadZipImages(Request $request,BaseImage $image){
         $photos = $image->spots;
-        $dir = time();
-        foreach ($photos as $file) {
-            /* Log::error(ImageHandler::getUploadPath(false, $file));*/
-            $imgName = last(explode('/', $file->path));
-            $path = public_path('storage/spots-images/' . $dir);
-            if (!File::exists($path)) {
-                File::makeDirectory($path, 0775, true);
-            }
-            ImageHandler::downloadFile($file, $path . '/' . $imgName);
-        }
-        $path = public_path('storage/spots-images/'.$dir);
+//        $dir = time();
+//        foreach ($photos as $file) {
+//            /* Log::error(ImageHandler::getUploadPath(false, $file));*/
+//            $imgName = last(explode('/', $file->path));
+//            $path = public_path('storage/spots-images/' . $dir);
+//            if (!File::exists($path)) {
+//                File::makeDirectory($path, 0775, true);
+//            }
+//            ImageHandler::downloadFile($file, $path . '/' . $imgName);
+//        }
+        $path = public_path('storage/spots-images');
         $rootPath = realpath($path);
         $zip_file = 'Photos.zip';
         $public_dir = public_path();
         $zip = new ZipArchive();
         $zip->open($zip_file, ZipArchive::CREATE | ZipArchive::OVERWRITE);
-        /** @var SplFileInfo[] $files */
-        $files = new RecursiveIteratorIterator(
-            new RecursiveDirectoryIterator($rootPath),
-            RecursiveIteratorIterator::LEAVES_ONLY
-        );
+//        /** @var SplFileInfo[] $files */
+//        $files = new RecursiveIteratorIterator(
+//            new RecursiveDirectoryIterator($rootPath),
+//            RecursiveIteratorIterator::LEAVES_ONLY
+//        );
+        $invoice_file = 'invoices/aaa001.pdf';
 
-        foreach ($files as $name => $file1) {
+        foreach ($photos as $name => $spot) {
+            $zip->addFile(storage_path($spot->path), $spot);
+
             // Skip directories (they would be added automatically)
-            if (!$file1->isDir()) {
-                // Get real and relative path for current file
-                $filePath = $file1->getRealPath();
-                $relativePath = substr($filePath, strlen($rootPath) + 1);
-                // Add current file to archive
-                $zip->addFile($filePath, $relativePath);
-            }
+//            if (!$spot->isDir()) {
+//                // Get real and relative path for current file
+//                $filePath = $spot->getRealPath();
+//                $relativePath = substr($filePath, strlen($rootPath) + 1);
+//                // Add current file to archive
+//                $zip->addFile($filePath, $relativePath);
+//            }
         }
 
         // Zip archive will be created only after closing object
