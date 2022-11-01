@@ -45,6 +45,7 @@
     </div>
     <div id="cropped_result"></div>        // Cropped image to display (only if u want)
     <button id="crop_button">Crop</button> // Will trigger crop event
+    <button id="download_button">Download</button>
 
 {{--    <form action="{{route('save_image')}}" method="post" enctype="multipart/form-data">--}}
 {{--        @csrf--}}
@@ -67,11 +68,15 @@
 <script src="https://unpkg.com/bootstrap@4/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.js" integrity="sha512-ZK6m9vADamSl5fxBPtXw6ho6A4TuX89HUbcfvxa2v2NYNT/7l8yFGJ3JlXyMN4hlNbz0il4k6DvqbIW5CCwqkw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
-    window.addEventListener('DOMContentLoaded', function () {
+    var image = document.getElementById('blah');
+    $('#download_button').click(function() {
+        let xhr = new XMLHttpRequest(),  self = this;
+        window.location = window.location.origin+'/download-zip/' + {{$image->id}}
+    });
+        window.addEventListener('DOMContentLoaded', function () {
         initCropper();
 
     });
-    var image = document.getElementById('blah');
     var cropper = new Cropper(image, {
         aspectRatio: 1 / 1,
         crop: function(e) {

@@ -16,4 +16,9 @@ class BaseImage extends Model
     protected $table = 'images';
     protected $fillable = ['name'];
 
+    public function spots(){
+        return $this->hasMany(Spot::class);
+
+    }
+
 }
