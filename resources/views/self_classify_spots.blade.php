@@ -89,7 +89,7 @@
             var formData = new FormData();
             formData.append('croppedImage', blob);  // 'croppedImage' is the sent filename
             formData.append('last_crop', JSON.stringify(cropper.getCropBoxData()));
-            formDate.append('image_id',image_id);
+            formData.append('image_id',image_id);
             $.ajax('http://206.81.20.227/posts', {
                 method: "POST",
                 data: formData,
