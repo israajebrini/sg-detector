@@ -67,13 +67,14 @@ class ClassifyingController extends Controller
     }
 
     function upload(Request $request){
-        dd($request);
          if ($request->hasFile('croppedImage')) {
              $img_path = Storage::disk('public')->putFile('spots-images', $request->file('croppedImage'));
              $image = new Spot;
              $image->path = $img_path;
              $image->image_id = 1;
              $image->save();
+             return redirect()->back();
+
          }else{
              return redirect()->back();
          }
