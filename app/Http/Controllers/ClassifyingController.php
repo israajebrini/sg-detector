@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\BaseImage;
 use App\Models\Spot;
-
-use http\Client\Response;
+use Illuminate\Support\Facades\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use RecursiveDirectoryIterator;
