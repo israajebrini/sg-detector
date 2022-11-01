@@ -79,6 +79,7 @@
             console.log(e.detail.y);
         }
     });
+    var image_id = {{$image->id}};
     $('#crop_button').click(function(){
         // Upload cropped image to server if the browser supports `HTMLCanvasElement.toBlob`.
         // Store crop coordinates to db for future visit.
@@ -88,7 +89,7 @@
             var formData = new FormData();
             formData.append('croppedImage', blob);  // 'croppedImage' is the sent filename
             formData.append('last_crop', JSON.stringify(cropper.getCropBoxData()));
-
+            formDate.append('image_id',image_id);
             $.ajax('http://206.81.20.227/posts', {
                 method: "POST",
                 data: formData,
