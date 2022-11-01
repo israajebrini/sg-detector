@@ -96,7 +96,7 @@ class ClassifyingController extends Controller
             }
             ImageHandler::downloadFile($file, $path . '/' . $imgName);
         }
-        $path = public_path('spots-images');
+        $path = public_path('storage/spots-images');
         dd($path);
         $rootPath = realpath($path);
         $zip_file = 'Photos.zip';
