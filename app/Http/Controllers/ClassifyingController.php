@@ -85,7 +85,6 @@ class ClassifyingController extends Controller
     }
 
     function downloadZipImages(Request $request,BaseImage $image){
-        $photos = $image->spots;
 //        $dir = time();
 //        foreach ($photos as $file) {
 //            /* Log::error(ImageHandler::getUploadPath(false, $file));*/
@@ -107,11 +106,9 @@ class ClassifyingController extends Controller
 //            new RecursiveDirectoryIterator($rootPath),
 //            RecursiveIteratorIterator::LEAVES_ONLY
 //        );
-        $invoice_file = 'invoices/aaa001.pdf';
-
-        foreach ($photos as $name => $spot) {
+        $photos = $image->spots;
+        foreach ($photos as  $spot) {
             $zip->addFile(storage_path($spot->path), $spot);
-
             // Skip directories (they would be added automatically)
 //            if (!$spot->isDir()) {
 //                // Get real and relative path for current file
@@ -124,8 +121,8 @@ class ClassifyingController extends Controller
 
         // Zip archive will be created only after closing object
         $zip->close();
-        $fileurl = "/Photos.zip";
-        if (file_exists($fileurl)) {
+        $fileurl = "Photos.zip";
+        if (file_exists($zip_file)) {
             return Response::download($fileurl, 'Photos.zip', array('Content-Type: application/octet-stream','Content-Length: '. filesize($fileurl)))->deleteFileAfterSend(true);
         } else {
             return ['status'=>'zip file does not exist'];
