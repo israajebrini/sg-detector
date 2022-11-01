@@ -87,6 +87,7 @@ class ClassifyingController extends Controller
     function downloadZipImages(Request $request,BaseImage $image){
 
         $photos = $image->spots;
+        dd($photos[0]->path);
         $dir = time();
         foreach ($photos as $file) {
             /* Log::error(ImageHandler::getUploadPath(false, $file));*/
@@ -116,6 +117,7 @@ class ClassifyingController extends Controller
                 $filePath = $file1->getRealPath();
                 $relativePath = substr($filePath, strlen($rootPath) + 1);
                 // Add current file to archive
+
                 $zip->addFile($filePath, $relativePath);
             }
         }
