@@ -86,7 +86,7 @@ class ClassifyingController extends Controller
 
     function downloadZipImages(Request $request,BaseImage $image){
 
-        $photos = $image->spots;
+        $photos = $image->spots();
         foreach ($photos as $file) {
             dd($file->path);
         }
