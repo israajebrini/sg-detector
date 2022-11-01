@@ -90,13 +90,13 @@ class ClassifyingController extends Controller
         foreach ($photos as $file) {
             /* Log::error(ImageHandler::getUploadPath(false, $file));*/
             $imgName = last(explode('/', $file->path));
-            $path = public_path('spots-images/' . $dir);
+            $path = public_path('storage/spots-images/' . $dir);
             if (!File::exists($path)) {
                 File::makeDirectory($path, 0775, true);
             }
             ImageHandler::downloadFile($file, $path . '/' . $imgName);
         }
-        $path = public_path('storage/spots-images');
+        $path = public_path('storage/spots-images/'.$dir);
         $rootPath = realpath($path);
         $zip_file = 'Photos.zip';
         $public_dir = public_path();
