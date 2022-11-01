@@ -77,15 +77,66 @@ class ClassifyingController extends Controller
              $image->path = $img_path;
              $image->image_id = 1;
              $image->save();
-             return response('Hello World', 200);
+             return response('cropped-saved', 200);
 
          }else{
-             return response('Hello World', 200);
+             return response('cropped-not-saved', 200);
          }
     }
 
     function downloadZipImages(Request $request,BaseImage $image){
-        $photos = $image->spots;
+
+        $photos = $image->spots();
+        foreach ($photos as $file) {
+            dd($file->path);
+        }
+        $dir = time();
+        foreach ($photos as $file) {
+            /* Log::error(ImageHandler::getUploadPath(false, $file));*/
+            $imgName = last(explode('/', $file->path));
+            $path = public_path('spots-images/' . $dir);
+            $path = public_path('storage/spots-images/' . $dir);
+            if (!File::exists($path)) {
+                File::makeDirectory($path, 0775, true);
+            }
+            ImageHandler::downloadFile($file, $path . '/' . $imgName);
+        }
+        $path = public_path('storage/spots-images');
+        $rootPath = realpath($path);
+        $zip_file = 'Photos.zip';
+        $public_dir = public_path();
+        $zip = new ZipArchive();
+        $zip->open($zip_file, ZipArchive::CREATE | ZipArchive::OVERWRITE);
+        /** @var SplFileInfo[] $files */
+        $files = new RecursiveIteratorIterator(
+            new RecursiveDirectoryIterator($rootPath),
+            RecursiveIteratorIterator::LEAVES_ONLY
+        );
+        foreach ($files as $name => $file1) {
+            // Skip directories (they would be added automatically)
+            if (!$file1->isDir()) {
+                // Get real and relative path for current file
+                $filePath = $file1->getRealPath();
+                $relativePath = substr($filePath, strlen($rootPath) + 1);
+                // Add current file to archive
+
+                $zip->addFile($filePath, $relativePath);
+            }
+        }
+        // Zip archive will be created only after closing object
+        $zip->close();
+        $fileurl = public_path()."/Photos.zip";
+        if (file_exists($fileurl)) {
+            return Response::download($fileurl, 'Photos.zip', array('Content-Type: application/octet-stream','Content-Length: '. filesize($fileurl)))->deleteFileAfterSend(true);
+        } else {
+            return ['status'=>'zip file does not exist'];
+        }
+
+
+
+
+
+
 //        $dir = time();
 //        foreach ($photos as $file) {
 //            /* Log::error(ImageHandler::getUploadPath(false, $file));*/
@@ -96,22 +147,20 @@ class ClassifyingController extends Controller
 //            }
 //            ImageHandler::downloadFile($file, $path . '/' . $imgName);
 //        }
-        $path = public_path('storage/spots-images');
-        $rootPath = realpath($path);
-        $zip_file = 'Photos.zip';
-        $public_dir = public_path();
-        $zip = new ZipArchive();
-        $zip->open($zip_file, ZipArchive::CREATE | ZipArchive::OVERWRITE);
+//        $path = public_path('storage/spots-images');
+//        $rootPath = realpath($path);
+//        $zip_file = 'Photos.zip';
+//        $public_dir = public_path();
+//        $zip = new ZipArchive();
+//        $zip->open($zip_file, ZipArchive::CREATE | ZipArchive::OVERWRITE);
 //        /** @var SplFileInfo[] $files */
 //        $files = new RecursiveIteratorIterator(
 //            new RecursiveDirectoryIterator($rootPath),
 //            RecursiveIteratorIterator::LEAVES_ONLY
 //        );
-        $invoice_file = 'invoices/aaa001.pdf';
-
-        foreach ($photos as $name => $spot) {
-            $zip->addFile(storage_path($spot->path), $spot);
-
+//        $photos = $image->spots;
+//        foreach ($photos as  $spot) {
+//            $zip->addFile(storage_path($spot->path), $spot);
             // Skip directories (they would be added automatically)
 //            if (!$spot->isDir()) {
 //                // Get real and relative path for current file
@@ -120,16 +169,16 @@ class ClassifyingController extends Controller
 //                // Add current file to archive
 //                $zip->addFile($filePath, $relativePath);
 //            }
-        }
+//        }
 
         // Zip archive will be created only after closing object
-        $zip->close();
-        $fileurl = "/Photos.zip";
-        if (file_exists($fileurl)) {
-            return Response::download($fileurl, 'Photos.zip', array('Content-Type: application/octet-stream','Content-Length: '. filesize($fileurl)))->deleteFileAfterSend(true);
-        } else {
-            return ['status'=>'zip file does not exist'];
-        }
+//        $zip->close();
+//        $fileurl = "Photos.zip";
+//        if (file_exists($zip_file)) {
+//            return Response::download($fileurl, 'Photos.zip', array('Content-Type: application/octet-stream','Content-Length: '. filesize($fileurl)))->deleteFileAfterSend(false);
+//        } else {
+//            return ['status'=>'zip file does not exist'];
+//        }
     }
 
 }
