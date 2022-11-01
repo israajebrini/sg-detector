@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Storage;
 use Symfony\Component\Process\Process;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 use View;
-
+use ZipArchive;
 
 class ClassifyingController extends Controller
 {
