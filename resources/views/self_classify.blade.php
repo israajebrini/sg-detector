@@ -12,8 +12,8 @@
 <body>
 <div class="hero-bg">
     <header>
-        <h1><a href="{{route('home')}}">Stress Granules detector</a></h1>
-        <p>by Yakeen & Israa</p>
+        <h1><a href="{{route('home')}}">Stress Granules Detector</a></h1>
+        <p>By Yakeen & Israa</p>
 
 
     </header>
