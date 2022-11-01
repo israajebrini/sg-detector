@@ -77,10 +77,10 @@ class ClassifyingController extends Controller
              $image->path = $img_path;
              $image->image_id = 1;
              $image->save();
-             return response('Hello World', 200);
+             return response('cropped-saved', 200);
 
          }else{
-             return response('Hello World', 200);
+             return response('cropped-not-saved', 200);
          }
     }
 
@@ -123,7 +123,7 @@ class ClassifyingController extends Controller
         $zip->close();
         $fileurl = "Photos.zip";
         if (file_exists($zip_file)) {
-            return Response::download($fileurl, 'Photos.zip', array('Content-Type: application/octet-stream','Content-Length: '. filesize($fileurl)))->deleteFileAfterSend(true);
+            return Response::download($fileurl, 'Photos.zip', array('Content-Type: application/octet-stream','Content-Length: '. filesize($fileurl)))->deleteFileAfterSend(false);
         } else {
             return ['status'=>'zip file does not exist'];
         }
