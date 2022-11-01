@@ -3,12 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\BaseImage;
+use App\Models\Spot;
+use Illuminate\Support\Facades\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use RecursiveDirectoryIterator;
+use RecursiveIteratorIterator;
 use Symfony\Component\Process\Process;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 use View;
-
+use ZipArchive;
 
 class ClassifyingController extends Controller
 {
@@ -56,7 +60,7 @@ class ClassifyingController extends Controller
             $image->path = $img_path;
             $image->save();
         }else{
-            return Redirect::back()->with('message','please upload image !');
+            return redirect()->back();
         }
         return $this->self_training_spots($image->id);
     }
@@ -66,5 +70,66 @@ class ClassifyingController extends Controller
         return view('self_classify_spots',["image" => $image]);
     }
 
+    function upload(Request $request){
+         if ($request->hasFile('croppedImage')) {
+             $img_path = Storage::disk('public')->putFile('spots-images', $request->file('croppedImage'));
+             $image = new Spot;
+             $image->path = $img_path;
+             $image->image_id = 1;
+             $image->save();
+             return response('Hello World', 200);
+
+         }else{
+             return response('Hello World', 200);
+         }
+    }
+
+    function downloadZipImages(Request $request,BaseImage $image){
+        $photos = $image->spots;
+//        $dir = time();
+//        foreach ($photos as $file) {
+//            /* Log::error(ImageHandler::getUploadPath(false, $file));*/
+//            $imgName = last(explode('/', $file->path));
+//            $path = public_path('storage/spots-images/' . $dir);
+//            if (!File::exists($path)) {
+//                File::makeDirectory($path, 0775, true);
+//            }
+//            ImageHandler::downloadFile($file, $path . '/' . $imgName);
+//        }
+        $path = public_path('storage/spots-images');
+        $rootPath = realpath($path);
+        $zip_file = 'Photos.zip';
+        $public_dir = public_path();
+        $zip = new ZipArchive();
+        $zip->open($zip_file, ZipArchive::CREATE | ZipArchive::OVERWRITE);
+//        /** @var SplFileInfo[] $files */
+//        $files = new RecursiveIteratorIterator(
+//            new RecursiveDirectoryIterator($rootPath),
+//            RecursiveIteratorIterator::LEAVES_ONLY
+//        );
+        $invoice_file = 'invoices/aaa001.pdf';
+
+        foreach ($photos as $name => $spot) {
+            $zip->addFile(storage_path($spot->path), $spot);
+
+            // Skip directories (they would be added automatically)
+//            if (!$spot->isDir()) {
+//                // Get real and relative path for current file
+//                $filePath = $spot->getRealPath();
+//                $relativePath = substr($filePath, strlen($rootPath) + 1);
+//                // Add current file to archive
+//                $zip->addFile($filePath, $relativePath);
+//            }
+        }
+
+        // Zip archive will be created only after closing object
+        $zip->close();
+        $fileurl = "/Photos.zip";
+        if (file_exists($fileurl)) {
+            return Response::download($fileurl, 'Photos.zip', array('Content-Type: application/octet-stream','Content-Length: '. filesize($fileurl)))->deleteFileAfterSend(true);
+        } else {
+            return ['status'=>'zip file does not exist'];
+        }
+    }
 
 }

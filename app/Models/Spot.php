@@ -8,17 +8,16 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Model;
 use Laravel\Sanctum\HasApiTokens;
 
-class BaseImage extends Model
+class Spot extends Model
 {
     use HasFactory;
 
 
-    protected $table = 'images';
-    protected $fillable = ['name'];
+    protected $table = 'spots';
+    protected $fillable = ['path','image_id'];
 
-    public function spots(){
-        return $this->hasMany(Spot::class);
-
+    public function baseImage(){
+        return $this->belongsTo(BaseImage::class);
     }
 
 }
