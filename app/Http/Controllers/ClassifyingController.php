@@ -124,7 +124,7 @@ class ClassifyingController extends Controller
 
         // Zip archive will be created only after closing object
         $zip->close();
-        $fileurl = public_path()."/Photos.zip";
+        $fileurl = "/Photos.zip";
         if (file_exists($fileurl)) {
             return Response::download($fileurl, 'Photos.zip', array('Content-Type: application/octet-stream','Content-Length: '. filesize($fileurl)))->deleteFileAfterSend(true);
         } else {
